@@ -51,6 +51,13 @@ export const useSessionStore = defineStore('session', () => {
     localStorage.removeItem('active_project_id')
   }
 
+  function toggleProjectPublic(id: number, value: boolean) {
+    const project = projects.value.find((p) => p.id === id)
+    if (project) {
+      project.public = value
+    }
+  }
+
   return {
     token,
     user,
@@ -61,6 +68,7 @@ export const useSessionStore = defineStore('session', () => {
     setProjects,
     setActiveProject,
     rehydrate,
+    toggleProjectPublic,
     logout,
   }
 })

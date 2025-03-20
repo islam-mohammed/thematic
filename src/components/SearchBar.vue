@@ -83,6 +83,7 @@ function submit() {
     path: '/notfound',
     query: {
       q: query.value,
+      type: selected.value.toLowerCase(),
     },
   })
 }

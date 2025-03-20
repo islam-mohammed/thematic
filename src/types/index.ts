@@ -5,6 +5,8 @@ export interface Playlist {
   created_at: string
   songs: Song[]
   user: User
+  public: boolean
+  thumbnail_art_file_url: string | null
 }
 
 export interface Song {

@@ -3,10 +3,7 @@
     <div class="p-6">
       <!-- Header -->
       <div class="flex items-center justify-between mb-6">
-        <h1 class="text-xl font-bold flex items-center gap-2">
-          <span class="material-icons">bookmark</span>
-          My Playlists
-        </h1>
+        <h1 class="text-xl font-bold flex items-center gap-2">My Playlists</h1>
 
         <div class="text-sm text-gray-600 cursor-pointer flex items-center gap-1 hover:text-black">
           Sort by Newest

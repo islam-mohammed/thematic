@@ -12,6 +12,8 @@ export async function useLoginWithToken(token: string) {
 
   await execute()
 
+  console.log(data.value)
+
   if (error.value) throw new Error('Authentication failed.')
 
   const items = data.value?.items || []
