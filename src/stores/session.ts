@@ -27,6 +27,14 @@ export const useSessionStore = defineStore('session', () => {
     localStorage.setItem('projects', JSON.stringify(value))
   }
 
+  function updateProject(updatedProject: Playlist) {
+    const index = projects.value.findIndex((p) => p.id === updatedProject.id)
+    if (index !== -1) {
+      projects.value[index] = { ...projects.value[index], ...updatedProject }
+      setProjects([...projects.value]) // Also updates localStorage
+    }
+  }
+
   function setActiveProject(id: number) {
     activeProjectId.value = id
     localStorage.setItem('active_project_id', id.toString())
@@ -67,6 +75,7 @@ export const useSessionStore = defineStore('session', () => {
     setUser,
     setProjects,
     setActiveProject,
+    updateProject,
     rehydrate,
     toggleProjectPublic,
     logout,
