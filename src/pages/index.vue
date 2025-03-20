@@ -29,6 +29,10 @@ onMounted(() => {
 
 async function login() {
   try {
+    if (token.value === '') {
+      alert('Please enter a token')
+      return
+    }
     await useLoginWithToken(token.value)
     router.push('/playlists') // redirect after login
   } catch (e: any) {
