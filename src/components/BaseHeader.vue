@@ -11,9 +11,7 @@
       <nav class="flex items-center space-x-6 text-sm">
         <RouterLink to="/notfound" class="hover:underline">Discover</RouterLink>
         <RouterLink to="/notfound" class="hover:underline">Songs</RouterLink>
-        <RouterLink to="/playlists" class="font-semibold border-b-2 border-white"
-          >Playlists</RouterLink
-        >
+        <RouterLink to="/notfound" class="hover:underline">Playlists</RouterLink>
       </nav>
     </div>
 

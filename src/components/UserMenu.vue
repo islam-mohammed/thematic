@@ -140,7 +140,7 @@ const selectedProject = computed(() => store.projects.find((p) => p.id === store
 
 const menu = [
   { label: 'Licenses & Downloads', to: '/notfound' },
-  { label: 'My Playlists', to: '/notfound' },
+  { label: 'My Playlists', to: '/playlists/mine' },
   { label: 'Trackfluencer', to: '/notfound' },
   { label: 'Your Points', to: '/notfound' },
   { label: 'Settings', to: '/notfound' },

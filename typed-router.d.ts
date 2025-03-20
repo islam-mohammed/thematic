@@ -22,5 +22,6 @@ declare module 'vue-router/auto-routes' {
     '/[notfound]': RouteRecordInfo<'/[notfound]', '/:notfound', { notfound: ParamValue<true> }, { notfound: ParamValue<false> }>,
     '/playlists/': RouteRecordInfo<'/playlists/', '/playlists', Record<never, never>, Record<never, never>>,
     '/playlists/[id]': RouteRecordInfo<'/playlists/[id]', '/playlists/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/playlists/mine/': RouteRecordInfo<'/playlists/mine/', '/playlists/mine', Record<never, never>, Record<never, never>>,
   }
 }
