@@ -39,7 +39,7 @@
       >
         <!-- Project Name -->
         <div class="text-right text-xs text-gray-300 mb-2">
-          {{ selectedProject?.name }}
+          {{ selectedProject?.user.profile_name }}
         </div>
 
         <!-- Avatar -->
