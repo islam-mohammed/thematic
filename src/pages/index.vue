@@ -19,8 +19,7 @@ import { useSessionStore } from '@/stores/session'
 const token = ref('')
 const router = useRouter()
 
-const session = useSessionStore();
-
+const session = useSessionStore()
 
 onMounted(() => {
   if (session.token && session.user && session.projects.length) {
@@ -28,11 +27,10 @@ onMounted(() => {
   }
 })
 
-
 async function login() {
   try {
     await useLoginWithToken(token.value)
-    router.push('/playlists') // ✅ redirect after login
+    router.push('/playlists') // redirect after login
   } catch (e: any) {
     alert(e.message)
   }
