@@ -1,5 +1,5 @@
-import { useApi } from '@/services/api'
 import type { Song } from '@/types'
+import { useApi } from './useApi'
 
 export function useSongs(projectId: string) {
   const songs = useApi<Song[]>(`/projects/${projectId}/songs`)

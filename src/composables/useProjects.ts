@@ -1,6 +1,6 @@
 import { ref, watchEffect } from 'vue'
-import { useApi } from '@/services/api'
 import type { Project } from '@/types'
+import { useApi } from './useApi'
 
 const selectedProject = ref<Project | null>(null)
 
@@ -13,19 +13,20 @@ export function useProjects() {
 
   watchEffect(() => {
     if (projects.value?.length) {
-      const stored = localStorage.getItem('selectedProject')
-      const parsed = stored ? JSON.parse(stored) : null
-      const match = projects.value.find((p) => p.id === parsed?.id)
+      const stored = localStorage.getItem('selectedProjectId')
+      const parsedId = stored ? parseInt(stored) : null
+      const match = projects.value.find((p) => p.id === parsedId)
       selectedProject.value = match || projects.value[0]
-      if (!stored) {
-        localStorage.setItem('selectedProject', JSON.stringify(selectedProject.value))
+
+      if (!stored && selectedProject.value) {
+        localStorage.setItem('selectedProjectId', selectedProject.value.id.toString())
       }
     }
   })
 
   function selectProject(project: Project) {
     selectedProject.value = project
-    localStorage.setItem('selectedProject', JSON.stringify(project))
+    localStorage.setItem('selectedProjectId', project.id.toString())
   }
 
   return {

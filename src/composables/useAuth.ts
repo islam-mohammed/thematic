@@ -18,6 +18,6 @@ export async function useFetch<T>(url: string, options: RequestInit = {}): Promi
     return responseData
   } catch (error) {
     console.error('Fetch Error:', error)
-    throw error // Ensure Vue components receive the validation errors
+    throw error
   }
 }
