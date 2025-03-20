@@ -76,7 +76,7 @@ import draggable from 'vuedraggable'
 const route = useRoute()
 const store = useSessionStore()
 const projectId = Number(route.params.id)
-const { removeSong } = useSongs(projectId.toString())
+const { removeSongs } = useSongs(projectId.toString())
 
 const songs = ref<any[]>([])
 const currentProject = computed(() => store.projects.find((p) => p.id === projectId))
@@ -103,11 +103,12 @@ function onDragEnd() {
   }
 }
 
-async function handleRemove(songId: string, index: number) {
+async function handleRemove(songId: number, index: number) {
   try {
-    const res = await removeSong(songId)
+    const res = await removeSongs([songId]) // now passing an array
     if (!res.error) {
       songs.value.splice(index, 1)
+
       const i = store.projects.findIndex((p) => p.id === projectId)
       if (i !== -1) {
         const updatedProject = {
@@ -117,6 +118,8 @@ async function handleRemove(songId: string, index: number) {
         store.projects.splice(i, 1, updatedProject)
         store.setProjects([...store.projects])
       }
+    } else {
+      console.error('Failed to delete song:', res.error)
     }
   } catch (e) {
     console.error('Unexpected error:', e)
