@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import ChatWidget from './components/ChatWidget.vue'
+import ChatWidget from '@/components/ui/ChatWidget.vue'
 </script>
 
 <template>

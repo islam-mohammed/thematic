@@ -26,6 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import PlaylistGrid from '@/components/PlaylistGrid.vue'
+import PlaylistGrid from '@/components/playlist/PlaylistGrid.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 </script>
