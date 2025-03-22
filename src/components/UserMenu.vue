@@ -74,6 +74,12 @@
           >
             {{ item.label }}
           </RouterLink>
+          <button
+            @click="store.logout"
+            class="block hover:text-gray-300 cursor-pointer transition ease-in-out"
+          >
+            Logout
+          </button>
         </ul>
       </div>
     </Transition>
@@ -144,7 +150,6 @@ const menu = [
   { label: 'Trackfluencer', to: '/notfound' },
   { label: 'Your Points', to: '/notfound' },
   { label: 'Settings', to: '/notfound' },
-  { label: 'Logout', to: '/logout' },
 ]
 </script>
 

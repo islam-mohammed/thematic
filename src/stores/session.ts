@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import type { User, Playlist } from '@/types'
+import router from '@/router'
 
 export const useSessionStore = defineStore('session', () => {
   const token = ref(sessionStorage.getItem('auth_token') || '')
@@ -57,6 +58,8 @@ export const useSessionStore = defineStore('session', () => {
     localStorage.removeItem('user')
     localStorage.removeItem('projects')
     localStorage.removeItem('active_project_id')
+    sessionStorage.removeItem('auth_token')
+    router.push('/')
   }
 
   function toggleProjectPublic(id: number, value: boolean) {
