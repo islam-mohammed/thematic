@@ -8,8 +8,7 @@ export function useApiClient(): AxiosInstance {
     client = axios.create({
       baseURL: import.meta.env.VITE_API_BASE_URL,
       headers: {
-         Authorization: `Bearer a9aaa5f5bab6e11243886744d2cac81b`,
-        'Content-Type': 'application/json',
+        ...getAuthHeaders(),
       },
     })
 
